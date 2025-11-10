@@ -1,0 +1,226 @@
+/* Late 90s/Early 2000s Minimalist Aesthetic */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #00ff00;
+    --border-color: #ffffff;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.subtitle {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-section {
+    margin-bottom: 80px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    border-bottom-color: var(--border-color);
+    padding-left: 10px;
+}
+
+.label {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+    font-weight: bold;
+}
+
+.value {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a.value:hover {
+    color: var(--accent-color);
+    letter-spacing: 2px;
+}
+
+/* Coming Soon Section */
+.coming-soon {
+    text-align: center;
+    margin-top: 40px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.coming-soon p {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+.blink {
+    font-size: 2rem;
+    animation: blink 1s infinite;
+    display: inline-block;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    padding-top: 40px;
+    border-top: 2px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.divider {
+    opacity: 0.4;
+}
+
+/* Glitch Effect (subtle) */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch:hover::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 red;
+    top: 0;
+    color: var(--text-color);
+    background: var(--bg-color);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-anim 0.5s infinite;
+}
+
+.glitch:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 2px 0 blue;
+    top: 0;
+    color: var(--text-color);
+    background: var(--bg-color);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-anim 0.7s infinite reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    25% { clip: rect(12px, 9999px, 59px, 0); }
+    50% { clip: rect(85px, 9999px, 12px, 0); }
+    75% { clip: rect(25px, 9999px, 38px, 0); }
+    100% { clip: rect(65px, 9999px, 73px, 0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .value {
+        font-size: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .divider {
+        display: none;
+    }
+}
+
+/* Selection styling */
+::selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+::-moz-selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
